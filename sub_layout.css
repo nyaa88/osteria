@@ -1,0 +1,29 @@
+#container{
+	margin:0;
+	padding:0;
+	}
+
+#nav{
+	position:absolute;
+	top:0;
+	left:0;
+	}
+
+#contents{
+	margin:20px 50px 0 210px;
+	}
+
+/*dropmenu*/
+
+/*#nav ul{	
+	visibility: hidden;
+	opacity:0;
+	transition: .0s;
+	}
+	
+
+
+#nav:hover ul{
+	visibility: visible;
+	opacity:1;
+}*/
