@@ -1,0 +1,128 @@
+body{
+	font-family: "ヒラギノ角ゴ Pro","メイリオ","sans";
+	text-align:center;
+	color:#666666;
+	background-image:url(img/nav_dark_wood.jpg);
+	background-repeat: repeat; 
+	margin:0;
+	padding:0;
+	}
+
+#contents{
+	margin-right:50px;
+	margin-left:50px;
+	}
+
+h1{
+	font-size:36px;
+	color:#E41C30;
+	font-family:Georgia,"Time New Roman",Times,serif;
+	letter-spacing:15px;
+	line-height: 25px;
+	}
+
+h2{
+	font-size:18px;
+	color:#ffffff;
+	background-color:#007747;
+	margin-bottom:0;
+	padding-top:5px;
+	padding-bottom: 5px;
+	}
+
+input{
+	margin:5px;
+	box-shadow: inset 1px 4px 9px -6px rgba(0,0,0,0.3);}
+
+form{
+	font-size:14px;
+	text-align:left;
+	background-color:#ffffff;
+	line-height:150%;
+	margin-top:0;
+	margin-bottom:15px;
+	padding:20px;
+	}
+
+p{margin: 10px 80px;
+	line-height: 25px;}
+
+table{
+	border-collapse: collapse;
+	margin:0 auto;
+	}
+	
+#contents tr{	
+	border-bottom: dashed 2px #00C375;
+}
+
+/*td いろいろ調整する*/
+.item1{
+	width: 160px;
+	padding:20px 10px;
+}
+
+.item2,.none,.block{
+	width:400px;
+	padding:10px;
+	position: relative;/*←position: absoluteの親ボックスに指定*/
+}
+
+
+
+textarea{
+	margin-bottom:10px;
+	}
+	
+
+#contents a{text-decoration :none;
+	font-weight:bold;}
+#contents a:link{color: #943434;}
+#contents a:visited{color: #33ff66;}
+#contents a:hover{color:#99ff33;}
+#contents a:active{color:#ff6699;}
+
+
+
+.none,.block{
+	position: absolute;/*←親ボックスに対しての絶対位置指定*/
+	bottom:10px;/*↑からの位置調整*/
+}
+
+.none{display:none;}
+
+.block{
+  display:block;
+	line-height:1.5em;
+  }
+  
+
+p.hiss{
+	color:#fff;
+	background:#E41C30;
+	float:right;
+	padding:0 5px;
+	margin:0 5px;
+}
+
+#kknn{/*フォーム下の確認文章大枠*/
+	text-align: center;
+	margin:0 auto;
+}
+
+#tyui{/*注意書き*/
+	text-align: left;
+	margin:0 auto;}
+
+#txa{/*コメントのテキストボックス*/
+	height: 120px; 
+	width: 378px;
+	margin: 10px 0;
+}
+
+#plice_none{/*計算した料金*/
+	bottom: 5px;
+	left: 70px;
+	}
+
+#lndn{margin:0;}コースを選ぶ前のp

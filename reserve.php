@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8" />
 	<link rel="stylesheet" href="reserve.css" type="text/css"/>
-	<link rel="stylesheet" href="nav.css" type="text/css"/>
+	<link rel="stylesheet" href="nav2.css" type="text/css"/>
 	<link rel="stylesheet" href="sub_layout.css" type="text/css"/>
 	<link rel="shortcut icon" href="img/favicon.png">
 	<link rel="stylesheet" type="text/css" href="datetimepicker/jquery.datetimepicker.css"/>
@@ -17,7 +17,7 @@
 <body>
 <div id="container">	
 	
-	<?php include "nav.html"; ?>
+	<?php include "nav2.html"; ?>
 	
 	<div id="contents">
 		<h1>Reserve</h1>
@@ -29,28 +29,32 @@
 		</p>
 		<table>
 			<tr>
-				<td class="item1">■ご希望日程</td>
+				<td class="item1">■ご希望日程
+					<p class="hiss">必須</p></td>
 				<td class="item2"><input type="text" name="yyk_dhms" id="yyk_dhms" placeholder="ご希望の日時を入力してください。" size="30" autocomplete="off" onchange="checkForm();"></td>
 			</tr>
 			
 			<tr>
-				<td class="item1">■ご希望時間</td>
+				<td class="item1">■ご希望時間
+					<p class="hiss">必須</p></td>
 				<td class="item2">
-					<input type="radio" name="kibou" id="lunch" onclick="dp_lunch()">
+					<input type="radio" name="kibou" id="lunch" value="lunch">
 					<label for="lunch">ランチ</label><!-- ランチラジオボタン -->
-					<input type="radio" name="kibou" id="dinner" onclick="dp_dinner()">
+					<input type="radio" name="kibou" id="dinner" value="dinner">
 					<label for="dinner">ディナー</label></td><!-- ディナーラジオボタン -->
 			</tr>
 			<tr>
-				<td class="item1">■ご希望コース</td>
+				<td class="item1">■ご希望コース
+					<p class="hiss">必須</p></td>
 				<td class="item2">
+					<p id="lndn">ご希望時間を選んでください</p>
 				<div class="none" id="jkn_lunch"><!--未選択時に消える-->
 					  <select>
-					    <option>ご希望のお時間</option><!-- 時間をラジオボタンの横に移動させたい -->
+					    <option>ご希望のお時間</option>
 					    <option>11:30(ランチ)</option>
 					    <option>12:00(ランチ)</option>
 					  </select>
-					  <select id="corse_lunch">
+					  <select name="corse_lunch">
 					    <option>ご希望のコース</option>
 					    <option value="0">美食の歓びコース &yen;4800</option>
 					    <option value="1">至福の午餐会コース &yen;6800</option>
@@ -62,8 +66,8 @@
 				     <option>17:30(ディナー)</option>
 				     <option>18:00(ディナー)</option>
 				   </select>
-				   <select id="corse_dinner">
-				     <option value="0">ご希望のコース</option>
+				   <select name="corse_dinner">
+				     <option>ご希望のコース</option>
 				     <option value="2">ムニュKAGURA ～神楽～ &yen;8500</option>
 				     <option value="3">シェフ大堀スペシャルディナー &yen;13500</option>
 				   </select>
@@ -71,18 +75,22 @@
 			</tr>
 			
 			<tr>
-				<td class="item1">■ご希望人数</td>
-				<td class="item2"><input type="num" name="num" id="num" size="4" min="1" max="12" placeholder="1~12まで" required onchange="numCheck()">名様</td>
+				<td class="item1">■ご希望人数
+					<p class="hiss">必須</p></td>
+				<td class="item2"><input type="num" name="num" id="num" size="4" min="1" max="12" placeholder="1~12まで">名様</td>
 			</tr>
 			
 			<tr>
 				<td class="item1">■料金</td>
-				<td class="item2"><input type="button" onclick="total_chk()" value="合計する">
-<input type="num" name="total_plice" id="total_plice">円</td>
+				<td class="item2">
+					<input type="button" id="total_chk" value="計算">
+					<div class="none" id="plice_none">
+						(税込)<input type="num" name="total_plice" id="total_plice" size="3">円</div></td>
 			</tr>
 
 			<tr>
-				<td class="item1">■ご住所</td>
+				<td class="item1">■ご住所
+					<p class="hiss">必須</p></td>
 				<td class="item2">
 					<label>郵便番号</label>
   				<input type="text" name="zip1" maxlength="3" size="2"> -
@@ -97,25 +105,29 @@
 			</tr>
 			
 			<tr>
-				<td class="item1">■電話番号</td>
+				<td class="item1">■電話番号
+					<p class="hiss">必須</p></td>
 				<td class="item2">
-					<input type="text" name="tel" size="30" onchange="telCheck();" placeholder="&nbsp&nbsp&nbsp&nbsp - &nbsp&nbsp&nbsp&nbsp - "/></td>
+					<input type="text" name="tel" size="30" id="tel" placeholder="&nbsp&nbsp&nbsp&nbsp - &nbsp&nbsp&nbsp&nbsp - "/></td>
 			</tr>
 
 			<tr>
-				<td class="item1">■メールアドレス</td>
-				<td class="item2"><input type="text" name="email" size="30" onchange="mailCheck()";/></td>
+				<td class="item1">■メールアドレス
+					<p class="hiss">必須</p></td>
+				<td class="item2"><input type="text" name="eml" size="30" id="eml";/></td>
 			</tr>			
 			
 			<tr>
-				<td class="item1">■お名前</td>
+				<td class="item1">■お名前
+					<p class="hiss">必須</p></td>
 				<td class="item2"><input type="text" name="name1" size="30"/></td>
 			</tr>
 			
 			<tr>
-				<td class="item1">■フリガナ</td>
+				<td class="item1">■ふりがな
+					<p class="hiss">必須</p></td>
 				<td class="item2">
-					<input name="kana" placeholder="フリガナ" onchange="kanacheck();"></td>
+					<input name="kana" placeholder="ふりがな" id="kana"></td>
 			</tr>
 						
 			<tr>
@@ -148,12 +160,11 @@
 		<label for="doi">同意する</label>
 	</p>
 	
-<input type="button" onclick="addrCheck()?submit():alert('番地まで入力してください。');" value="入力した内容を確認する" >
-<input id="doick"  type="submit" disabled>
+<input type="button" onclick="addrCheck()?submit():alert('入力を確認してください。');" id="doick" value="入力した内容を確認する" disabled>
 <!-- 三項演算子=if文を一行で書ける。
 (条件)?真の時:偽の時
 if(条件){真の時}else{偽の時} と同じ -->
-
+<!-- disabledは無効化→同意をチェックすると押せるようにしている -->
 
 
 	</form>

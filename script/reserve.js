@@ -1,92 +1,131 @@
-//jQuery未使用
+//jQuery使用
+var checkFlag = 0 ;//どこかにエラーがあれば1を代入
+
 
 //人数 半角数字チェック
-function numCheck(){
-	nStr=document.frm.num.value;
+$('#num').change(function(){
+	nStr = $('#num').val();
+		if(!nStr.match(/^[0-9]+$/) || 1 > nStr || nStr > 12){
+			alert("半角数字1~12の間で入れてください");
+			$(this).css('background-color','#ecc'),focus();
+			$checkFlag=1;
+		}else{
+			$(this).css('background-color','#fff');
+			$checkFlag=0;
+	}
+});
 
-if(!nStr.match(/^[0-9]+$/) || 1 > nStr || nStr > 10){alert("半角数字1~10の間で入れてください");}
-}
 
-	//時間・メニューの選択表示　←これはbody以下で読み込まないとダメだった
-var Jkn_lunch = document.getElementById('jkn_lunch');
-var Jkn_dinner = document.getElementById('jkn_dinner');
-
-function dp_lunch() {//ラジオボタンでランチを選んだ時
-	Jkn_lunch.className = "block";
-	Jkn_dinner.className = "none";
-  }
-
-function dp_dinner() {//ラジオボタンでディナーを選んだ時
-	Jkn_dinner.className = "block";
-	Jkn_lunch.className = "none";
-  }
+//時間・メニューのラジオボタン選択切り替え
+$('#lunch').click(function(){//ラジオボタンでランチを選んだ時
+	$('#jkn_lunch').show(800);
+  $('#jkn_dinner').hide(300);
+  $('#lndn').hide(100);
+});
+$('#dinner').click(function(){//ラジオボタンでディナーを選んだ時
+	$('#jkn_dinner').show(800);
+	$('#jkn_lunch').hide(300);
+  $('#lndn').hide(100);
+});
 
 
 //料金合計
-function total_chk() {
-	var total_plice = 
-  document.getElementById('total_plice');
-  var rl = document.frm.corse_lunch;//ラジオボタンのid
-  var rd = document.frm.corse_dinner;
-  
-  //セレクトメニューで選んだ値を取得するための文  
-  if(document.frm.lunch.checked){
-  	//ランチにチェックが入っていたら.checkedの戻り値は true か false
-  	var menu = rl.options[rl.selectedIndex].value;
-  	} else if(document.frm.dinner.checked){
-  	//ディナーにチェックが入っていたら
-  	var menu = rd.options[rd.selectedIndex].value;
-  	} else {
-  	//どっちにも入っていなかったら
-  	alert("ランチかディナーを選んでください");
-  	}
-
-
-	var tax = 1.08; //消費税　実行の過程で値が変わらないものは　const(定数)として宣言しておく。
 	var rykn_array = [4800,6800,8500,13500];  
-//選んだメニュー*人数*消費税
 
-	total_plice.value = (rykn_array[menu] * nStr * tax).toLocaleString(); //BOXの値がセレクトで選んだ値になる。toLocaleString()で桁区切り  
+$('#total_chk').click(function(){
+	$('#plice_none').toggle(0);
+	$('#plice_none').show(500);
+});//計算を押すとすぐに出てくる。もう一度押すとすぐに消え再計算してゆっくり出てくる
+
+$('#total_chk').click(function(){
+	const tax=1.08;//消費税
+if($('#lunch').prop('checked')){
+  	//prop→チェックされていたらtrueを返す。ランチの合計を計算
+  var menu =		//選択されたセレクトメニューの値を取得
+	$('select[name="corse_lunch"] option:selected').val();
+	}else if($('#dinner').prop('checked')){//ディナーが選ばれていたら
+  var menu =
+  $('select[name="corse_dinner"] option:selected').val();
+  }else{//どちらも選んでいない場合
+  alert("ランチかディナーを選んでください");
+  $checkFlag=1;
+  }
   
-} 
+//合計してtextBoxに値を表示
+  $("#total_plice").val((rykn_array[menu] * nStr * tax).toLocaleString() //BOXの値がセレクトで選んだ値になる。toLocaleString()で桁区切り //選んだメニュー*人数*消費税
+  );
+});
 
 
-
-//住所
-function addrCheck(){
-var addr=document.frm.addr.value;
-	//半角と全角の0-9が入っていなければalert
-	if(!addr.match(/[0-9０-９]/)){
-	return false;
-	}else{
-	return true;
-	}}
-	//関数内のreturn は呼び出し元に戻り値を返して終了する。
 	
 //電話番号チェック
-function telCheck(){
-	var tel=document.frm.tel.value;
-	if(!tel.match(/^[0-9]{2,4}-[0-9]{2,4}-[0-9]{3,4}$/)){
-		alert("半角数字・ハイフンで入力してください");
-	}}
+$('#tel').change(function(){
+	var Tel = $('#tel').val();
+	if(!Tel.match(/^[0-9]{2,4}-[0-9]{2,4}-[0-9]{3,4}$/)){
+		alert("半角数字・ハイフンを入れて入力してください");
+		$(this).select();
+		$(this).css('background-color','#ecc');
+		$checkFlag=1;
+		}else{
+		$(this).css('background-color','#fff');
+		$checkFlag=0;
+		}
+	});
 
 //メールアドレスチェック
-function mailCheck(){
-	var email=document.frm.email.value;
-	if(!email.match(/^[a-zA-Z0-9_.+-]+[@][a-zA-Z0-9.-]+$/)){
+$('#eml').change(function(){
+	var eMl = $('#eml').val();
+	if(!eMl.match(/^[a-zA-Z0-9_.+-]+[@][a-zA-Z0-9.-]+$/)){
 		alert("メールアドレスを確認してください");
-		}}
+		$('#eml').select();
+		$(this).css('background-color','#ecc');
+		$checkFlag=1;
+		}else{
+		$(this).css('background-color','#fff');
+		$checkFlag=0;
+		}
+	});
 
-//カタカナチェック
-function kanacheck(){
-var kana=document.frm.kana.value;
-if(!kana.match(/^[ァ-ン]+$/)){
-alert("フリガナは全角カタカナで入れてください");
-}}
+
+//ふりがなチェック
+$('#kana').change(function(){
+	var kStr = $('#kana').val();
+	if(!kStr.match(/^[ぁ-ん]+$/)){
+		alert("ふりがなは\"ひらがな\"で入れてください");
+		$('#kana').select();
+		$(this).css('background-color','#ecc');
+		$checkFlag=1;
+		}else{
+		$(this).css('background-color','#fff');
+		$checkFlag=0;
+		}
+		});
 
 //同意にチェックしないと送信できない
 $('#doi').on('change',function(){if($(this).is(':checked')){
 	$('#doick').prop('disabled',false);
 }else{
-	$('#doick').prop('disabled',true);
-}});
+	$('#doick').prop('disabled',true);}
+	});
+
+
+//住所の番地と最終チェック
+function addrCheck(){
+var aStr = $('#addr').val();
+	//半角と全角の0-9が入っていなければalert
+	if(!aStr.match(/[0-9０-９]/) || $checkFlag==1 ){
+		$('#addr').css('background-color','#ecc');
+		return false;//送信しない
+	}else{
+		$('#addr').css('background-color','#fff');
+		return true;}//送信する
+	};
+	//関数内のreturn は呼び出し元に戻り値を返して終了する。
+
+
+document.onkeypress = enter;
+function enter() {
+	if (window.event.keyCode == 13) {
+		return false;
+	}
+}
