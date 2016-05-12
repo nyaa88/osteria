@@ -1,0 +1,75 @@
+body{
+	font-family: "ヒラギノ角ゴ Pro","メイリオ","sans";
+	text-align:center;
+	color:#666666;
+	background-image:url(img/nav_dark_wood.jpg),url(img/tileable-dark-wood-textures.jpg);/*navの背景が最前面*/
+	background-repeat: repeat-y,repeat; /*y方向の繰り返し、敷き詰め*/
+	margin:0;
+	padding:0;
+	}/*back.png*//*back2.png*/
+	/*tail.gif*//*img/grd.gif*/
+
+
+#contents{
+	margin-right:50px;
+	margin-left:50px;
+	}
+
+#select{
+	background-color: #FFFFFF;
+	padding: 5px;
+	font-size: 16px;
+	border-left: 100px solid #007747;
+	border-right: 100px solid #E41C30;
+	}
+
+h1{
+	font-size:36px;
+	color:#E41C30;
+	font-family:Georgia,"Time New Roman",Times,serif;
+	letter-spacing:15px;
+	}
+
+h2{
+	font-size:18px;
+	color:#ffffff;
+	background-color:#007747;
+	margin-bottom:0;
+	padding-top:5px;
+	padding-bottom: 5px;
+	}
+	
+p{
+	font-size:14px;
+	text-align:left;
+	background-color:#ffffff;
+	line-height:150%;
+	margin-top:0;
+	padding:20px;
+	}
+
+p#yatai0{margin:0;}
+
+img.photo{
+	float: left;
+	margin-right:20px;
+	margin-bottom:10px;
+	box-shadow: 5px 3px 6px #666;/*画像に影をつける*/
+	border-radius:15px;/*四隅を丸く切り取る*/
+	}
+
+span.menu{
+	clear: left;
+	display:block;
+}
+
+
+#select a{text-decoration :none;
+	font-weight:bold;
+	color: #E41C30;
+	transition: All 0.5s ease-in;/*マウスオーバーでゆっくりかわる*//*色も大きさも場所も全部0.5秒かけてゆっくり始まって自然に終わる*/}
+a:link{color: #943434;}/*なくても同じ(aに書く)*/
+a:visited{color: #33ff66;}/*既リンク*/
+#select a:hover{color:#99ff33;
+	text-decoration:underline;}/*カーソルが乗った時、色が変わりアンダーラインがつく*/
+a:active{color:#ff6699;}/*クリックした瞬間*/
