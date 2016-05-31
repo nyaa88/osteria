@@ -1,0 +1,82 @@
+body{
+	font-family: "ヒラギノ角ゴ Pro","メイリオ","sans";
+	text-align:center;
+	color:#666666;
+	background-image:url(img/nav_dark_wood.jpg);
+	background-repeat: repeat; 
+	margin:0;
+	padding:0;
+	}
+
+#contents{
+	margin:30px auto;
+	width:600px;
+	font-size:14px;
+	text-align:left;
+	background-color:#ffffff;
+	line-height:150%;
+	padding:20px;
+	border-radius:20px 20px 20px 20px;
+}
+h1{
+	font-size:26px;
+	color: #FFF;
+	background: #E41C30;
+	padding: 15px;
+	border-radius: 5px;
+	letter-spacing:15px;
+	}
+
+table{
+	border-collapse: collapse;
+	margin:0 auto 30px;
+	}
+	
+#contents tr{	
+	border-bottom: dashed 2px #00C375;
+}
+
+/*td*/
+.item1{
+	width: 115px;
+	padding:20px 10px;
+}
+
+.item2{
+	width: 330px;
+	padding: 20px 0;
+}
+
+
+input[name="sosin"]{
+}
+
+.aa{height: 80px;}
+
+a.button{
+	display:block;
+	width: 100px;
+	height: 33px;
+	text-align: center;
+	border:solid 1px #666;
+	border-radius: 4px;
+	text-decoration:none;
+	padding-top:10px;
+	background:#f1f1f1;
+	color:#222;
+	top:12px;
+	margin:0 auto 20px;
+	position:relative;
+	font-size:0.8em;
+	box-shadow:0px 1px 1px;
+}
+
+a.button:hover{box-shadow:3px 4px 3px #999;}
+a.button:active{
+	height:20px;
+		margin:2px auto 20px;
+	padding-bottom:10px;
+	box-shadow: 1px 1px 1px;
+	top:14px;
+	position: relative;
+}

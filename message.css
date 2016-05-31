@@ -2,13 +2,12 @@ body{
 	font-family: "ヒラギノ角ゴ Pro","メイリオ","sans";
 	text-align:center;
 	color:#666666;
-	background-image:url(img/nav_dark_wood.jpg);
-	background-repeat: repeat; 
-	margin:0;
+	background-image:url(img/nav_dark_wood.jpg),url(img/tileable-dark-wood-textures.jpg);/*navの背景が最前面*/
+	background-repeat: repeat-y,repeat; /*y方向の繰り返し、敷き詰め*/
 	margin:0;
 	padding:0;
 	}
-	
+
 #contents{
 	margin-right:50px;
 	margin-left:50px;
@@ -20,39 +19,33 @@ h1{
 	color:#E41C30;
 	font-family:Georgia,"Time New Roman",Times,serif;
 	letter-spacing:15px;
+	line-height: 25px;
 	}
 
-caption{
-	font-size:20px;
+h2{
+	font-size:18px;
 	color:#ffffff;
-	font-weight:bold;	
 	background-color:#007747;
-	border-radius: 20px 20px 0 0;
-	padding:5px 0;
+	margin-bottom:0;
+	padding-top:5px;
+	padding-bottom: 5px;
 	}
 
-table{
-	font-size: 14px;
-	background-color:#ffffff;
-	/*border: solid 2px #007747;*/
-	border-collapse:collapse;
-	margin:0 auto 20px;
-	/*width: 100%;*/
-	border-radius:0 0 20px 20px;
-	}
-
-th{vertical-align:top;}
-
-th,td{
-	padding:10px;
+form{
+	font-size:14px;
 	text-align:left;
-	border: solid 1px #00C375;
+	background-color:#ffffff;
+	line-height:150%;
+	margin-top:0;
+	margin-bottom:15px;
+	padding:20px;
 	}
 
-tr:last-child td{	
-	border:none;
+
+textarea{
+	margin-bottom:10px;
+	}
 	
-}
 
 #contents a{text-decoration :none;
 	font-weight:bold;}

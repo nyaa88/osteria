@@ -1,6 +1,28 @@
 //jQuery使用
 var checkFlag = 0 ;//どこかにエラーがあれば1を代入
 
+var getCheck = [$("#yyk_dhms"),$("#num"),$("#addr"),$('#name1'),$("#kana"),$("#tel"),$("#mel")];
+
+//日付Flag
+$('#yyk_dhms').change(function(){
+	var yyk = $('#yyk_dhms').val();
+	if(yyk.match(null)){
+		}else{
+		$(this).css('background-color','#fff');
+		checkFlag=0;
+		}
+	});
+
+// //名前Flag
+// $('#name1').change(function(){
+	// var nm1 = $('#name1').val();
+	// if(nm1.match(null)){
+		// }else{
+		// $(this).css('background-color','#fff');
+		// checkFlag=0;
+		// }
+	// });
+
 
 //人数 半角数字チェック
 $('#num').change(function(){
@@ -8,10 +30,10 @@ $('#num').change(function(){
 		if(!nStr.match(/^[0-9]+$/) || 1 > nStr || nStr > 12){
 			alert("半角数字1~12の間で入れてください");
 			$(this).css('background-color','#ecc'),focus();
-			$checkFlag=1;
+			checkFlag=1;
 		}else{
 			$(this).css('background-color','#fff');
-			$checkFlag=0;
+			checkFlag=0;
 	}
 });
 
@@ -48,7 +70,7 @@ if($('#lunch').prop('checked')){
   $('select[name="corse_dinner"] option:selected').val();
   }else{//どちらも選んでいない場合
   alert("ランチかディナーを選んでください");
-  $checkFlag=1;
+  checkFlag=1;
   }
   
 //合計してtextBoxに値を表示
@@ -65,10 +87,10 @@ $('#tel').change(function(){
 		alert("半角数字・ハイフンを入れて入力してください");
 		$(this).select();
 		$(this).css('background-color','#ecc');
-		$checkFlag=1;
+		checkFlag=1;
 		}else{
 		$(this).css('background-color','#fff');
-		$checkFlag=0;
+		checkFlag=0;
 		}
 	});
 
@@ -79,10 +101,10 @@ $('#eml').change(function(){
 		alert("メールアドレスを確認してください");
 		$('#eml').select();
 		$(this).css('background-color','#ecc');
-		$checkFlag=1;
+		checkFlag=1;
 		}else{
 		$(this).css('background-color','#fff');
-		$checkFlag=0;
+		checkFlag=0;
 		}
 	});
 
@@ -94,33 +116,50 @@ $('#kana').change(function(){
 		alert("ふりがなは\"ひらがな\"で入れてください");
 		$('#kana').select();
 		$(this).css('background-color','#ecc');
-		$checkFlag=1;
+		checkFlag=1;
 		}else{
 		$(this).css('background-color','#fff');
-		$checkFlag=0;
+		checkFlag=0;
 		}
 		});
 
 //同意にチェックしないと送信できない
 $('#doi').on('change',function(){if($(this).is(':checked')){
-	$('#doick').prop('disabled',false);
+	$('#sub').prop('disabled',false);
 }else{
-	$('#doick').prop('disabled',true);}
+	$('#sub').prop('disabled',true);}
 	});
 
 
-//住所の番地と最終チェック
+//住所の番地&最終チェック
 function addrCheck(){
-var aStr = $('#addr').val();
-	//半角と全角の0-9が入っていなければalert
-	if(!aStr.match(/[0-9０-９]/) || $checkFlag==1 ){
-		$('#addr').css('background-color','#ecc');
-		return false;//送信しない
+//var aStr = $('#addr').val();
+	for(var i in getCheck){//配列をループして、取り出した値をiに代入する
+		//未入力場合だけピンクにしたいので
+		if(getCheck[i].val()==""){
+		getCheck[i].css('background-color','#ecc');
+		return false;//送信しない //関数内のreturn は呼び出し元に戻り値を返して終了する。
 	}else{
-		$('#addr').css('background-color','#fff');
-		return true;}//送信する
-	};
-	//関数内のreturn は呼び出し元に戻り値を返して終了する。
+		//入力されていたら、値がふくまれてるかチェック
+		if(checkFlag==1){//どこかでエラーが出ていれば
+			return false;//送信しない 
+		}else{
+			if(i==2){//配列の住所のところ。2番目なら"1"
+				//半角と全角の0-9が入っていなければalert
+				if(!$('#addr').val().match(/[0-9０-９]/)){
+					$('#addr').css('background-color','#ecc');
+					alert('番地まで入力してください');
+					return false;//送信させない
+				}else{
+					$('#addr').css('background-color','#fff');
+					}
+				}//番地チェックの終わり
+			}//値チェックの終わり
+		}//未入力チェックの終わり
+	}//End for
+	return true;//送信する
+};//End Function
+
 
 
 document.onkeypress = enter;

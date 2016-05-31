@@ -1,0 +1,168 @@
+#container{
+	margin:20px auto;
+	padding-top:1px;
+	width:780px;
+	background:url(img/tileable-dark-wood-textures.jpg) repeat;
+  border-radius: 25px;
+  box-shadow: 0px 0px 3px #000;
+	}
+
+#nav{
+	float: left;
+}
+
+#contents{
+	width:460px;
+	float: left;
+}
+
+#side{
+	width:160px;
+	float: left;
+}
+
+#footer{
+	clear:both;
+}
+
+#amazingslider-wrapper-1{
+	display:block;
+	position:relative;
+	max-width:360px;
+	margin:0px auto 48px;
+}
+
+#amazingslider-1{
+	display:block;
+	position:relative;
+	margin:0 auto;
+}
+
+#pi{margin-top: 25px;}
+
+#menu-box {display: none;}
+
+	#amazingslider-wrapper-1{
+	display:block;
+	}
+  #pi{
+	display: none;
+	}
+
+#menu li{
+  display: block;
+  float: left;
+  width: 12.5%;
+  margin: 0;
+  padding: 0; }
+#menu li a{
+  display: block;
+  padding: 12px 0 10px;
+  background:url(img/dark_wood.png) repeat;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+}
+#menu li a:hover{
+  background: #444;
+}
+#toggle{ 
+ display: none;
+ font-size:20px;
+ font-family:Georgia,"Time New Roman",Times,serif;
+}
+
+
+@media only screen and (max-width: 768px) {
+#container {margin:0;}
+
+#header {
+    width: auto;
+    height: auto;}
+
+h1{margin:0;}
+	
+	#amazingslider-wrapper-1{
+	display:none;
+	}
+  #pi{
+	display:block;
+	}
+	
+	#menu-box{
+		display: block;
+	}
+	#menu{
+	  width: 100%;
+	  max-width: 960px;
+	  margin: 0 auto;
+	  padding: 0;
+	}
+
+  #menu li{
+    width: 25%;
+    border-bottom: 1px solid #444;
+   }
+  #nav{display:none;
+  }
+  #contents {
+		margin-left: 0;width:100%;float:none;
+	}
+	#container{width:auto;}
+	#side {
+	width:100%;float:none;clear: left;
+	margin: auto;
+	}
+	#side div{width: 49%;float: left;}
+}
+
+@media only screen and (max-width: 480px) {
+  #menu{
+    display: none;
+  }
+  #menu li{
+    width: 100%;
+  }
+  #toggle{
+    display: block;
+    position: relative;
+    width: 100%;
+    background: #E41C30;
+  }
+  #toggle a{
+    display: block;
+    position: relative;
+    padding: 12px 0 10px;
+    border-bottom: 1px solid #444;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+  }
+  #toggle:before{
+    display: block;
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    width: 20px;
+    height: 20px;
+    margin-top: -10px;
+    background: #fff;
+  }
+  #toggle a:before, #toggle a:after{
+    display: block;
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    width: 20px;
+    height: 4px;
+    background: #E41C30;
+  }
+  #toggle a:before{
+    margin-top: -6px;
+  }
+  #toggle a:after{
+    margin-top: 2px;
+  }
+}

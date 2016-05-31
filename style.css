@@ -1,0 +1,95 @@
+@charset "utf-8";
+
+body{
+	font-family: "ヒラギノ角ゴ Pro","メイリオ","sans";
+	color:#666666;
+	text-align:center;
+	/*background-color:#fff;*/
+	background:url(img/dark_wood.png) repeat;
+	margin:0;
+	padding:0;
+	}
+
+#go_top img {display: none }
+/*indexだけ画像非表示*/
+
+#contents{
+	margin:auto;
+	}
+	
+#header{
+	width:780px;
+	height: 90px;
+	}
+	
+h1{
+	font-size:50px;
+	color:#ffffff;
+	background-color:#E41C30;
+	font-family:Georgia,"Time New Roman",Times,serif;
+	margin:30px 0;
+	padding:0;
+	text-shadow:2px 2px 5px #666666;
+	box-shadow: 0 5px 10px 0 rgba(0,0,0,0.2),
+	                10px 0 0 0 #E41C30,
+	               -10px 0 0 0 #E41C30;
+	}
+
+#contents h2{
+	font-size: 20px;
+	color:#E41C30;
+	font-family:"courier New",Courier,monosupace;
+	margin:0;
+	padding-top: 5px;
+	text-shadow: 0px 1px 1px #969696; 
+	}
+
+p{
+	text-align:left;
+	margin:0;
+	padding:5px 15px 15px 15px;
+	text-shadow: 0px 0px 1px #4d4d4d; 
+	}
+	
+#box{
+	margin:20px 50px 20px 50px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 35px #000000;
+	background-color:#ffffff;
+	}
+		
+	
+p#copyright{
+	text-align:center;
+	border:none;
+	padding:0;
+	margin:0;
+	}
+
+span#osteria{font-weight:bold;}
+
+span.italia{font-style:italic;}
+
+
+#footer{
+	/*background-color:#5C8F13;*/
+	color:#ffffff;
+	padding:5px 0;
+	}
+
+
+
+input[type="checkbox"].on-off{
+    display: none;
+}
+
+
+input[type="checkbox"].on-off + ul{
+    height: 0;
+    overflow: hidden;
+}
+
+input[type="checkbox"].on-off:checked + ul{
+    height: 260px;
+}
+

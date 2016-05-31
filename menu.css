@@ -2,12 +2,11 @@ body{
 	font-family: "ヒラギノ角ゴ Pro","メイリオ","sans";
 	text-align:center;
 	color:#666666;
-	background-image:url(img/nav_dark_wood.jpg),url(img/tileable-dark-wood-textures.jpg);/*navの背景が最前面*/
-	background-repeat: repeat-y,repeat; /*y方向の繰り返し、敷き詰め*/
+	background-image:url(img/nav_dark_wood.jpg);
+	background-repeat: repeat; 
+	margin:0;
 	margin:0;
 	padding:0;
-	}/*back.png*//*back2.png*/
-	/*tail.gif*//*img/grd.gif*/
 
 
 #contents{

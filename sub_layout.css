@@ -4,26 +4,38 @@
 	}
 
 #nav{
-	position:absolute;
+	/*position:absolute;
 	top: 10px;
-	right: 10px;
+	right: 10px;*/
+	float: right;
+	margin:20px 20px 15px 0;
+	height:35px;
 	}
 
 #contents{
-	margin:70px 50px 0 50px;
+	/*margin: 50px 50px 0 50px;
+	position: absolute;*/
+	margin:0 50px;
 	}
 
-/*dropmenu*/
+.dropmenu{
+	float: left;
+	margin: 0 5px;
+	padding:0;
+}
 
-/*#nav ul{	
-	visibility: hidden;
-	opacity:0;
-	transition: .0s;
-	}
-	
+#go_top{
+	float:left;}
+#go_top img{
+	width:160px;
+	height:220px;
+	border: 0;
+}
 
+h1{
+	margin:0 auto;
+	border-radius: 5px;}
 
-#nav:hover ul{
-	visibility: visible;
-	opacity:1;
-}*/
+#midasi{
+	clear: both;
+}

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8" />
 	<link rel="stylesheet" href="menu.css" type="text/css" />
-	<link rel="stylesheet" href="nav.css" type="text/css"/>
+	<link rel="stylesheet" href="nav2.css" type="text/css"/>
 	<link rel="stylesheet" href="sub_layout.css" type="text/css"/>
 	<link rel="shortcut icon" href="img/favicon.png">
 	<title>menu</title>
@@ -25,7 +25,7 @@
 
 <div id="container">
 	
-	<?php include "nav.html"; ?>
+	<?php include "nav2.html"; ?>
 
 <div id="contents">
 	<div class="menu-box">

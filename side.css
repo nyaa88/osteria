@@ -1,0 +1,47 @@
+#side{
+	/*text-align:left;*/
+	text-align:center;
+	}
+
+
+#side h3{
+	margin:0 10px;
+	padding:2px 5px;
+	background-color:#ffffff;
+	color: #333;
+	font-family: Georgia,"ヒラギノ角ゴ Pro","メイリオ";
+	text-shadow: 0px 0px 5px #ffffff;
+  box-shadow: 0px 0px 35px #000000;
+  border-left: 20px solid #007747;
+  border-right: 20px solid #E41C30;
+	border-radius: 5px;
+	}
+
+#side ul{
+	font-size: small;
+	margin:10px 20px;
+	padding:0 5px;
+	background-color: #ffffff;
+	border-radius:5px;
+	box-shadow: 0px 0px 35px #000000;
+	transition: all 0.5s;
+	}
+
+#side li{
+	list-style-type:none;
+	line-height: 1.5em;
+	border-bottom: 1px dashed #39B573;
+	}
+
+#side li:last-child {
+	border:0;
+	}
+
+#side a{
+	text-decoration:none;
+	color:#333333;
+	}
+
+#side a:hover{
+	color: #FF6600;
+	}

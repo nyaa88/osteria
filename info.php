@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8" />
 	<link rel="stylesheet" href="info.css" type="text/css"/>
-	<link rel="stylesheet" href="nav.css" type="text/css"/>
+	<link rel="stylesheet" href="nav2.css" type="text/css"/>
 	<link rel="stylesheet" href="sub_layout.css" type="text/css"/>
 	<link rel="shortcut icon" href="img/favicon.png">
 	<title>info</title>
@@ -11,12 +11,13 @@
 <body>
 <div id="container">
 
-	<?php include "nav.html"; ?>
+	<?php include "nav2.html"; ?>
 	
 	<div id="contents">
 		<h1>Infomation</h1>
 		
-		<table border="1">
+		
+		<table>
 			<caption>＊イタリア料理の店＊ Osteria Grazie ＊</caption>
 			<tr>
 				<th>住所</th>

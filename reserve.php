@@ -20,10 +20,11 @@
 	<?php include "nav2.html"; ?>
 	
 	<div id="contents">
-		<h1>Reserve</h1>
+		<div id=midasi>
+		<h1>Reserve</h1></div>
 		<h2>レストランご予約フォーム</h2>
 		
-		<form name="frm" action="" method="GET">
+		<form name="frm" action="confirm.php" method="post">
 		<p>日頃より Osteria Grazie をご利用いただきまして誠にありがとうございます。<br>
 どうぞお気軽にご予約下さいませ。皆様のご来店心よりお待ち申し上げております。
 		</p>
@@ -31,7 +32,7 @@
 			<tr>
 				<td class="item1">■ご希望日程
 					<p class="hiss">必須</p></td>
-				<td class="item2"><input type="text" name="yyk_dhms" id="yyk_dhms" placeholder="ご希望の日時を入力してください。" size="30" autocomplete="off" onchange="checkForm();"></td>
+				<td class="item2"><input type="text" name="yyk_dhms" id="yyk_dhms" placeholder="ご希望の日時を入力してください。" size="25" autocomplete="off" onchange="checkForm();"></td>
 			</tr>
 			
 			<tr>
@@ -49,25 +50,25 @@
 				<td class="item2">
 					<p id="lndn">ご希望時間を選んでください</p>
 				<div class="none" id="jkn_lunch"><!--未選択時に消える-->
-					  <select>
-					    <option>ご希望のお時間</option>
-					    <option>11:30(ランチ)</option>
-					    <option>12:00(ランチ)</option>
+					  <select name="lunch_time">
+					    <option value="">ご希望のお時間</option>
+					    <option value="11:30">11:30(ランチ)</option>
+					    <option value="12:00">12:00(ランチ)</option>
 					  </select>
 					  <select name="corse_lunch">
-					    <option>ご希望のコース</option>
+					    <option value="">ご希望のコース</option>
 					    <option value="0">美食の歓びコース &yen;4800</option>
 					    <option value="1">至福の午餐会コース &yen;6800</option>
 					  </select>
 					</div>
 					<div class="none" id="jkn_dinner">
-				   <select>
-				     <option>ご希望のお時間</option>
-				     <option>17:30(ディナー)</option>
-				     <option>18:00(ディナー)</option>
+				   <select name="dinner_time">
+				     <option value="">ご希望のお時間</option>
+				     <option value="17:30">17:30(ディナー)</option>
+				     <option value="18:00">18:00(ディナー)</option>
 				   </select>
 				   <select name="corse_dinner">
-				     <option>ご希望のコース</option>
+				     <option value="">ご希望のコース</option>
 				     <option value="2">ムニュKAGURA ～神楽～ &yen;8500</option>
 				     <option value="3">シェフ大堀スペシャルディナー &yen;13500</option>
 				   </select>
@@ -108,7 +109,7 @@
 				<td class="item1">■電話番号
 					<p class="hiss">必須</p></td>
 				<td class="item2">
-					<input type="text" name="tel" size="30" id="tel" placeholder="&nbsp&nbsp&nbsp&nbsp - &nbsp&nbsp&nbsp&nbsp - "/></td>
+					<input type="text" name="tel" id="tel" placeholder="&nbsp&nbsp&nbsp&nbsp - &nbsp&nbsp&nbsp&nbsp - "/></td>
 			</tr>
 
 			<tr>
@@ -120,7 +121,8 @@
 			<tr>
 				<td class="item1">■お名前
 					<p class="hiss">必須</p></td>
-				<td class="item2"><input type="text" name="name1" size="30"/></td>
+				<td class="item2">
+					<input type="text" name="name1" id="name1"/></td>
 			</tr>
 			
 			<tr>
@@ -160,7 +162,9 @@
 		<label for="doi">同意する</label>
 	</p>
 	
-<input type="button" onclick="addrCheck()?submit():alert('入力を確認してください。');" id="doick" value="入力した内容を確認する" disabled>
+<input type="button" onclick="addrCheck()?submit():alert('入力を確認してください。');" id="sub" value="入力した内容を確認する" disabled>
+
+
 <!-- 三項演算子=if文を一行で書ける。
 (条件)?真の時:偽の時
 if(条件){真の時}else{偽の時} と同じ -->

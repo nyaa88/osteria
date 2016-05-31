@@ -8,26 +8,27 @@ body{
 	padding:0;
 	}
 
-#contents{
-	margin-right:50px;
-	margin-left:50px;
-	}
+
 
 h1{
 	font-size:36px;
-	color:#E41C30;
+	color: #FFF;
+	background: #E41C30;
+	text-shadow: 2px 2px 5px #FF596A;
+	width: 300px;
+	padding: 5px;
+	border-radius: 5px;
 	font-family:Georgia,"Time New Roman",Times,serif;
 	letter-spacing:15px;
-	line-height: 25px;
 	}
 
 h2{
-	font-size:18px;
+	font-size:20px;
 	color:#ffffff;
 	background-color:#007747;
 	margin-bottom:0;
-	padding-top:5px;
-	padding-bottom: 5px;
+	padding:10px 0;
+	border-radius: 20px 20px 0 0;
 	}
 
 input{
@@ -42,6 +43,7 @@ form{
 	margin-top:0;
 	margin-bottom:15px;
 	padding:20px;
+	border-radius:0 0 20px 20px;
 	}
 
 p{margin: 10px 80px;
@@ -89,7 +91,7 @@ textarea{
 	bottom:10px;/*↑からの位置調整*/
 }
 
-.none{display:none;}
+.none,#bnt{display:none;}
 
 .block{
   display:block;
