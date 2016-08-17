@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="ja">
 <head>
@@ -15,19 +16,57 @@
 
 
 <body>
-<div id="container">	
+<div id="container">		
 	
 	<?php include "nav2.html"; ?>
+
 	
 	<div id="contents">
 		<div id=midasi>
+		
+		<?php 
+	if(!empty($_POST["yyk_dhms"]) && !empty($_POST["total_plice"])){ 
+	include 'confirm.php';//送信ボタンを押していたら	
+	exit();
+	}
+	?>
+	
 		<h1>Reserve</h1></div>
 		<h2>レストランご予約フォーム</h2>
-		
-		<form name="frm" action="confirm.php" method="post">
+		<form name="frm" action="" method="post">
+					
 		<p>日頃より Osteria Grazie をご利用いただきまして誠にありがとうございます。<br>
 どうぞお気軽にご予約下さいませ。皆様のご来店心よりお待ち申し上げております。
-		</p>
+		</p>	
+			
+		<table>
+			<tr>
+				<td>■メールアドレスを入力してください
+				</td>
+				<td><input type="text" name="eml" size="30" id="eml" onchange="submit()" value="<?= isset($_POST['eml']) ? $_POST['eml']:""  ?>"/></td>
+			</tr>			
+		</table>
+	
+	<?php
+if(!isset($_POST['eml']) || empty($_POST['eml']))
+//フォームは一度開くと空文字がセットされるので、issetはFalseになる。emptyも必要
+ exit(""); //ここで中断 メールアドレスを入力してください
+
+//DB接続部分
+require_once 'condb.php';
+	$yykdb = new Yykdb();
+			
+		$strsql="SELECT zip,pref,city,addr,eml,name,kana FROM yoyak WHERE eml='".$_POST['eml']."'";//
+
+		$assoc = $yykdb->select($strsql); //メアドがあれば一件返ってくる
+		
+		$zip =explode("-", $assoc['zip']); //assoc は配列
+		
+?>
+
+
+		
+
 		<table>
 			<tr>
 				<td class="item1">■ご希望日程
@@ -94,14 +133,14 @@
 					<p class="hiss">必須</p></td>
 				<td class="item2">
 					<label>郵便番号</label>
-  				<input type="text" name="zip1" maxlength="3" size="2"> -
-    			<input type="text" name="zip2" maxlength="4" size="3" onchange="AjaxZip3.zip2addr('zip1','zip2','pref','city','addr');"> <br>
+  				<input type="text" name="zip1" maxlength="3" size="2" value="<?= isset($zip[0]) ? $zip[0]:"" ?>"> -
+    			<input type="text" name="zip2" maxlength="4" size="3" onchange="AjaxZip3.zip2addr('zip1','zip2','pref','city','addr');" value="<?= isset($zip[1]) ? $zip[1]:"" ?>"> <br>
 					<label for="pref" class="control-label">都道府県</label>
-					<input type="text" name="pref" maxlength="4"> <br>
+					<input type="text" name="pref" maxlength="4" value="<?= isset($assoc['pref']) ? $assoc['pref']:""  ?>"> <br>
 <label for="city">市町村区</label>
-  				<input type="text" name="city"> <br>
+  				<input type="text" name="city" value="<?= isset($assoc['city']) ? $assoc['city']:""  ?>"> <br>
 <label for="addr">以降の住所</label>
-  				<input type="text" name="addr" id="addr">
+  				<input type="text" name="addr" id="addr" value="<?= isset($assoc['addr']) ? $assoc['addr']:""  ?>">
 				</td>
 			</tr>
 			
@@ -112,11 +151,11 @@
 					<input type="text" name="tel" id="tel" placeholder="&nbsp&nbsp&nbsp&nbsp - &nbsp&nbsp&nbsp&nbsp - "/></td>
 			</tr>
 
-			<tr>
+			<!-- <tr>
 				<td class="item1">■メールアドレス
 					<p class="hiss">必須</p></td>
-				<td class="item2"><input type="text" name="eml" size="30" id="eml";/></td>
-			</tr>			
+				<td class="item2"><input type="text" name="eml" size="30" id="eml" value="<?= isset($_POST['eml']) ? $_POST['eml']:""  ?>";/></td>
+			</tr>	 -->		
 			
 			<tr>
 				<td class="item1">■お名前
@@ -162,7 +201,7 @@
 		<label for="doi">同意する</label>
 	</p>
 	
-<input type="button" onclick="addrCheck()?submit():alert('入力を確認してください。');" id="sub" value="入力した内容を確認する" disabled>
+<input type="button" onclick="addrCheck()?submit():alert('入力を確認してください。');" id="sub" name="sub" value="入力した内容を確認する" disabled>
 
 
 <!-- 三項演算子=if文を一行で書ける。

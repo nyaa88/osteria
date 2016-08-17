@@ -7,7 +7,7 @@ body{
 	margin:0;
 	margin:0;
 	padding:0;
-
+}
 
 #contents{
 	margin-right:50px;
@@ -20,7 +20,20 @@ body{
 	font-size: 16px;
 	border-left: 100px solid #007747;
 	border-right: 100px solid #E41C30;
+	border-radius: 20px 20px 0 0;
 	}
+
+#select a{
+	font-size: 20px;
+	text-decoration :none;
+	font-weight:bold;
+	color: #E41C30;
+	transition: All 0.5s ease-in;/*マウスオーバーでゆっくりかわる*//*色も大きさも場所も全部0.5秒かけてゆっくり始まって自然に終わる*/}
+a:link{color: #943434;}/*なくても同じ(aに書く)*/
+a:visited{color: #33ff66;}/*既リンク*/
+#select a:hover{color:#99ff33;
+	text-decoration:underline;}/*カーソルが乗った時、色が変わりアンダーラインがつく*/
+a:active{color:#ff6699;}/*クリックした瞬間*/
 
 h1{
 	font-size:36px;
@@ -36,6 +49,7 @@ h2{
 	margin-bottom:0;
 	padding-top:5px;
 	padding-bottom: 5px;
+	border-radius: 20px 20px 0 0;
 	}
 	
 p{
@@ -45,9 +59,18 @@ p{
 	line-height:150%;
 	margin-top:0;
 	padding:20px;
+	border-radius: 0 0 20px 20px;
 	}
 
-p#yatai0{margin:0;}
+p#yatai0{
+	margin:0;
+	border-radius: 0;}
+
+img.topm{
+	width: 100%;
+	border-radius: 0 0 20px 20px;
+	border-bottom: solid #666 1px;
+}
 
 img.photo{
 	float: left;
@@ -62,13 +85,3 @@ span.menu{
 	display:block;
 }
 
-
-#select a{text-decoration :none;
-	font-weight:bold;
-	color: #E41C30;
-	transition: All 0.5s ease-in;/*マウスオーバーでゆっくりかわる*//*色も大きさも場所も全部0.5秒かけてゆっくり始まって自然に終わる*/}
-a:link{color: #943434;}/*なくても同じ(aに書く)*/
-a:visited{color: #33ff66;}/*既リンク*/
-#select a:hover{color:#99ff33;
-	text-decoration:underline;}/*カーソルが乗った時、色が変わりアンダーラインがつく*/
-a:active{color:#ff6699;}/*クリックした瞬間*/

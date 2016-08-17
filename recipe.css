@@ -2,8 +2,8 @@ body{
 	font-family: "ヒラギノ角ゴ Pro","メイリオ","sans";
 	text-align:center;
 	color:#666666;
-	background-image:url(img/nav_dark_wood.jpg),url(img/tileable-dark-wood-textures.jpg);/*navの背景が最前面*/
-	background-repeat: repeat-y,repeat; /*y方向の繰り返し、敷き詰め*/
+	background-image:url(img/nav_dark_wood.jpg);
+	background-repeat: repeat;
 	margin:0;
 	padding:0;
 	}
@@ -29,13 +29,14 @@ h1{
 	}
 
 h2{
-	font-size:18px;
+	font-size:20px;
 	color:#ffffff;
-	text-align:center;
+  font-weight: bold;
+  text-align:center;
 	background-color:#007747;
 	margin-bottom:0;
-	padding-top:5px;
-	padding-bottom: 5px;
+	padding: 5px 0;
+	border-radius: 20px 20px 0 0;
 	}
 
 p{
@@ -55,8 +56,8 @@ img#photot{
 
 ul{
 	float:left;
-	list-style-image:url(img/mark.png);
-	margin-top:0; /*追加*/
+	/*list-style-image:url(img/mark.png);*/
+	margin-top:0; 
 	}
 
 li#list-title{

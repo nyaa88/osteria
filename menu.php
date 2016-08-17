@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 	<meta charset="UTF-8" />
-	<link rel="stylesheet" href="menu.css" type="text/css" />
+	<link rel="stylesheet" href="menu.css" type="text/css"/>
 	<link rel="stylesheet" href="nav2.css" type="text/css"/>
 	<link rel="stylesheet" href="sub_layout.css" type="text/css"/>
 	<link rel="shortcut icon" href="img/favicon.png">
@@ -28,14 +28,16 @@
 	<?php include "nav2.html"; ?>
 
 <div id="contents">
-	<div class="menu-box">
+	
 		<h1>Menu</h1>
 		<div id="select">
 			<a href="#select1">屋台のコース</a> : 
-			<a href="#select2">郷土料理のコース : </a>
+			<a href="#select2">郷土料理のコース</a> : 
 			<a href="#select3">アラカルト</a>
 		</div>
-		<img src="img/menu_top.jpg" alt="" style="width: 100%">
+		<img class="topm" src="img/menu_top.jpg" alt="">
+		
+		<div class="menu-box">
 		<h2 id="select1">屋台のコース　Cucina Volante</h2>
 		<p id="yatai0"><img src="img/photo1.png" width="150" height="170" alt="屋台のコースの写真" class="photo"/>
 			前菜の盛り合わせ<br>

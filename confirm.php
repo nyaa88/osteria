@@ -7,6 +7,7 @@ require_once 'mojifilter.php';
 <head>
 	<meta charset="UTF-8" />
 	<link rel="stylesheet" href="confirm.css" type="text/css"/>
+	<link rel="stylesheet" href="nav2.css" type="text/css"/>
 	<link rel="shortcut icon" href="img/favicon.png">
 
 	<title>confirm</title>
@@ -14,13 +15,14 @@ require_once 'mojifilter.php';
 
 
 <body>
-	<div id="contents">	
+	<div id="contents2">	
 		 <h1>ご予約内容確認</h1>
 	<table>
 	
 <?php 
-	
+	//ループで一気に空文字チェック
 	if(empty($_POST)) exit("<a href='reserve.php'>ポストしてください</a>");	
+	
 	//キーの日本語配列作成
 	$keyjp=array("yyk_dhms"=>"■ご希望日","kibou"=>"■ご予約内容",
 	"lunch_time"=>"■ご希望時間","corse_lunch"=>"■ご希望コース",

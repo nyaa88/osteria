@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8" />
 	<link rel="stylesheet" href="recipe.css" type="text/css"/>
-	<link rel="stylesheet" href="nav.css" type="text/css"/>
+	<link rel="stylesheet" href="nav2.css" type="text/css"/>
 	<link rel="stylesheet" href="sub_layout.css" type="text/css"/>
 	<link rel="shortcut icon" href="img/favicon.png">
 	<title>Recipe</title>
@@ -11,13 +11,12 @@
 <body>
 <div id="container">
 
-	<?php include "nav.html"; ?>
+	<?php include "nav2.html"; ?>
 	
 	<div id="contents">
 		<h1>Recipe</h1>
-		
-		<div id="recipe">
 			<h2>豚の背肉のグリル 夏野菜のグリル添え</h2>
+		<div id="recipe">
 			<p>コラーゲンたっぷりの背脂の旨味を堪能するお料理。味付けは塩胡椒だけで、香ばしくジューシーに焼き上げましょう。食材に備わるもともとの旨味を引き出しておいしく食べる発想は、イタリア料理の特徴です。少々高価ですが、「黒豚」や「白金豚」は軽いグリルに向いています。</p>
 			<img src="img/recipe.png" alt="豚のグリルの写真" width="175" height="150" class="photo">
 			<ul>

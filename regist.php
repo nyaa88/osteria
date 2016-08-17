@@ -1,23 +1,23 @@
+<!doctype html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" href="confirm.css" type="text/css"/>
+	<link rel="stylesheet" href="nav2.css" type="text/css"/>
+		<link rel="stylesheet" href="sub_layout.css" type="text/css"/>
+	<link rel="shortcut icon" href="img/favicon.png">
+
+	<title>regist</title>
+</head>
+<body>
 <?php //値を受け取ってDBに登録しメールを送信するプログラム regist.php
 session_start();
-//DB接続部分を 伝票のファイルからコピペ
-// $uid = "root";
-// $pwd = "wert3333";
-// $pdo = new PDO("mysql:host=localhost;dbname=test;charset=utf8", $uid, $pwd);
 
-		$uid = "obr_nya" ;
-		$pwd = "fin58ega";		
-		$pdo = new PDO("mysql:host=mysql1.php.xdomain.ne.jp;dbname=obr_dtbs;charset=utf8", $uid, $pwd);
-			//データベースへの接続方法には決まったパターンが有ります。
-		$pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC); 
-			//連想配列だけで取得
-		
-		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			//何かあった時、詳しいエラーが出る
-//ここまで
+//DB接続部
+require_once 'condb.php'; //新規で作ったDBクラス
 
-$sql = "INSERT INTO `yoyak`(`yyk_dhms`, `kibou`, `jkn`, `corse`, `num`, `total_plice`, `zip`, `pref`, `city`, `addr`, `tel`, `eml`, `name`, `kana`, `comment`) 
-VALUES (";
+$sql = "INSERT INTO `yoyak`(`eml`, `yyk_dhms`, `kibou`, `jkn`, `corse`, `num`, `total_plice`, `zip`, `pref`, `city`, `addr`, `tel`, `name`, `kana`, `comment`) 
+VALUES ("; //この並びでDBに入るので順番注意
 
 //セッション配列を回して、値をこの順番でカンマで区切ってつなげる
 $strsql = ""; //空文字で初期化してから
@@ -39,12 +39,24 @@ $strsql .= ');' ; // );の閉じをつける
 $sql .= $strsql; //SQL文として正しくなるように
 
 //var_dump($sql); //ここに出てくる文字が SQL文として正しくなるように、
+	
+	
+//クラスを使うための構文
+	$yykdb = new Yykdb();
+	if($yykdb->incert($sql)){
+		//incrude 左ナビゲーション
+	
+?>
 
 
-$stmt = $pdo->prepare( $sql ); //SQL文の実行準備、構文チェック
-
-$stmt->execute(); //SQL実行 。成功するとtrueが、失敗するとfalseがかえる
-
+<div id="contents3">	
+	<h1>ご予約ありがとうございます</h1>
+<img src='img/heart_thank_you.png' alt='thank_you' />
+<p>ご予約内容を送信しました。<br>
+	ご予約は担当者からの返信をもって確定させて頂きます。
+</p>
+<?php
+//var_dump($success);
 
 //メール送信部分
 
@@ -62,12 +74,13 @@ $stmt->execute(); //SQL実行 。成功するとtrueが、失敗するとfalse�
 		$message .= $_SESSION['post']['pref'];
 		$message .= $_SESSION['post']['city']."\n";
 		
-		if(mb_send_mail($mailto, $subject, $message, $header)){
-			print "<h1>ご予約ありがとうございました</h1><img src='img/heart_thank_you.png' alt='thank_you' />
-			";
-		}else{
-			print "送信できませんでした";
-		}
-
+//		if(mb_send_mail($mailto, $subject, $message, $header)){
+//			print "<h1>ご予約ありがとうございました</h1><img src='img/heart_thank_you.png' alt='thank_you' />";
+//		}else{
+//			print "送信できませんでした";		}
+}
  ?>
 
+</div>
+</body>
+</html>
